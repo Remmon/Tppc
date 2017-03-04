@@ -213,6 +213,8 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         controller = this;
+        System.setProperty("webdriver.chrome.driver", "D:\\selenium\\chromedriver.exe");
+        driver = new ChromeDriver();
         CaptchaBreaker cb = CaptchaBreaker.getInstance();
         cb.setDriverAndController(controller, driver);
         Battle b =Battle.getInstance();
@@ -264,8 +266,7 @@ public class FXMLDocumentController implements Initializable {
         accountGmailField.setText("tppcaccmaster");
         
         
-        System.setProperty("webdriver.chrome.driver", "D:\\selenium\\chromedriver.exe");
-        driver = new ChromeDriver();
+
         tm = trainerManager.getInstance();
         tm.setDriver(driver);
         FightBreaker = false;
@@ -274,14 +275,14 @@ public class FXMLDocumentController implements Initializable {
         passwordField.setText("ScankHunt42qwe");
         trainingListView.getItems().setAll(tm.getList());
         trainingListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<trainer>() {
-    @Override
-    public void changed(ObservableValue<? extends trainer> observable, trainer oldValue, trainer newValue) {
-        // Your action here
-        trainingAccountField.setText(newValue.getAccountNumber());
-        tm.setSelected(newValue);
-        levelLabel.setText("Level: "+tm.getSelected().getLevel());
-    }
-});
+        @Override
+            public void changed(ObservableValue<? extends trainer> observable, trainer oldValue, trainer newValue) {
+                // Your action here
+                trainingAccountField.setText(newValue.getAccountNumber());
+                tm.setSelected(newValue);
+                levelLabel.setText("Level: "+tm.getSelected().getLevel());
+            }
+        });
         
         trainingListView.getSelectionModel().select(tm.getSelected());
         
