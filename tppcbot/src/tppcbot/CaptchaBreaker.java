@@ -29,6 +29,7 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.image.ImageView;
 import javax.imageio.ImageIO;
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.TakesScreenshot;
@@ -43,7 +44,8 @@ public class CaptchaBreaker {
     public static CaptchaBreaker cb = null;
     Map<String, ArrayList<String>> map;
     String[] Letters = {"0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"};
-    
+    FXMLDocumentController controller;
+    WebDriver driver;
     
     private CaptchaBreaker(){
         map = new HashMap<>();
@@ -65,6 +67,37 @@ public class CaptchaBreaker {
         
     }
     
+    public void setDriverAndController(FXMLDocumentController dc, WebDriver d){
+        controller = dc;
+        driver = d;
+    }
+    
+    public String solveCaptcha(String attrib){
+
+
+        String output = "";
+        ArrayList<WebElement> allImages = (ArrayList<WebElement>) driver.findElements(By.tagName("img"));
+        for (int i=0; i<allImages.size(); i++){
+            if(allImages.get(i).getAttribute("alt").equals(attrib/*"Congratulations!"*/)){                        
+                output = cb.crush(driver, allImages.get(i));
+                if (!output.equals("")){
+                    if(driver.findElements(By.id("Validate")).size() > 0){
+                        driver.findElement(By.id("Validate")).sendKeys(output);
+                    } else if (driver.findElements(By.name("Validate")).size() > 0){
+                        driver.findElement(By.name("Validate")).sendKeys(output);
+                    }
+
+                    driver.findElement(By.className("submit")).click();
+                }
+                break;
+            }
+        }
+        controller.defSleep();
+        return output;
+    } 
+  
+    
+    
     public static CaptchaBreaker getInstance(){
         if(cb == null){
             cb = new CaptchaBreaker();
@@ -74,11 +107,11 @@ public class CaptchaBreaker {
     }
     
     
-    public String crush(WebDriver driver, WebElement element, ImageView imageView) {
+    public String crush(WebDriver driver, WebElement element) {
         String soo = "";
         BufferedImage originalImage;
         try {
-            originalImage = shootWebElement(driver, element, imageView);
+            originalImage = shootWebElement(driver, element);
             //parseImage(originalImage);
             soo = parseImage(originalImage);
         } catch (MalformedURLException ex) {
@@ -93,7 +126,7 @@ public class CaptchaBreaker {
     
     
 
-public BufferedImage shootWebElement(WebDriver driver, WebElement element, ImageView imageView) throws IOException {
+public BufferedImage shootWebElement(WebDriver driver, WebElement element) throws IOException {
 
     File screen = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
     
@@ -109,7 +142,6 @@ public BufferedImage shootWebElement(WebDriver driver, WebElement element, Image
     BufferedImage dest = img.getSubimage(p.getX()+1, p.getY()+1, width, height);
     ImageIO.write(dest, "png", screen);
     FileUtils.copyFile(screen, new File("D:\\tppcJavafiles\\screenshot.png"));
-    imageView.setImage(SwingFXUtils.toFXImage(dest, null));
     return dest;
 }
 

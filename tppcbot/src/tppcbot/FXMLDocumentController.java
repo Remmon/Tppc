@@ -48,94 +48,93 @@ import org.openqa.selenium.support.ui.Select;
 public class FXMLDocumentController implements Initializable {
     
     @FXML
-    private Label label;
-    CaptchaBreaker cb;
+    public Label label;
     @FXML
-    private Button button;
+    public Button button;
     WebDriver driver;
     @FXML
-    private ImageView imageView;
+    public ImageView imageView;
     @FXML
-    private TextField usernameField;
+    public TextField usernameField;
     @FXML
-    private TextField passwordField;
+    public TextField passwordField;
     String trainerid;
     String acc;
     String pass;
     WebElement element;
     boolean FightBreaker;
     @FXML
-    private TextField trainingAccountField;
+    public TextField trainingAccountField;
     @FXML
-    private Label tokenLabel;
+    public Label tokenLabel;
     @FXML
-    private Label captchaLabel;
+    public Label captchaLabel;
     @FXML
-    private ListView<trainer> trainingListView;
+    public ListView<trainer> trainingListView;
     trainerManager tm;
     @FXML
-    private Label levelLabel;
-    private Label accountInfoLabel;
+    public Label levelLabel;
+    public Label accountInfoLabel;
     @FXML
-    private ImageView pokeImageView;
+    public ImageView pokeImageView;
     @FXML
-    private ProgressBar LevelProgress;
+    public ProgressBar LevelProgress;
     @FXML
-    private Label playerLevelLabel;
+    public Label playerLevelLabel;
     int startLevel;
     int currLevel;
     @FXML
-    private TextField timeToRest;
+    public TextField timeToRest;
     @FXML
-    private TextField timeToRestRandom;
+    public TextField timeToRestRandom;
     @FXML
-    private TextField timeBetweenRest;
+    public TextField timeBetweenRest;
     @FXML
-    private TextField fightSleepTimeField;
+    public TextField fightSleepTimeField;
     @FXML
-    private TextField fightSleepRandomField;
+    public TextField fightSleepRandomField;
     @FXML
-    private TextField timeBetweenRestRandom;
+    public TextField timeBetweenRestRandom;
     long startBigTime;
     long currBigTime;
     long estimatedTime;
     long random;
     @FXML
-    private Label pokeLabel1;
+    public Label pokeLabel1;
     @FXML
-    private ImageView pokeImage1;
+    public ImageView pokeImage1;
     @FXML
-    private ImageView pokeImage2;
+    public ImageView pokeImage2;
     @FXML
-    private Label pokeLabel2;
+    public Label pokeLabel2;
     @FXML
-    private ImageView pokeImage3;
+    public ImageView pokeImage3;
     @FXML
-    private Label pokeLabel3;
+    public Label pokeLabel3;
     @FXML
-    private ImageView pokeImage4;
+    public ImageView pokeImage4;
     @FXML
-    private Label pokeLabel4;
+    public Label pokeLabel4;
     @FXML
-    private ImageView pokeImage5;
+    public ImageView pokeImage5;
     @FXML
-    private Label pokeLabel5;
+    public Label pokeLabel5;
     @FXML
-    private ImageView pokeImage6;
+    public ImageView pokeImage6;
     @FXML
-    private Label pokeLabel6;
+    public Label pokeLabel6;
     @FXML
-    private Label pokeLevelLabel1;
+    public Label pokeLevelLabel1;
     @FXML
-    private Label pokeLevelLabel2;
+    public Label pokeLevelLabel2;
     @FXML
-    private Label pokeLevelLabel3;
+    public Label pokeLevelLabel3;
     @FXML
-    private Label pokeLevelLabel4;
+    public Label pokeLevelLabel4;
     @FXML
-    private Label pokeLevelLabel5;
+    public Label pokeLevelLabel5;
     @FXML
-    private Label pokeLevelLabel6;
+    public Label pokeLevelLabel6;
     ArrayList<Label> pokeLabel;
     ArrayList<ImageView> pokeImage;
     ArrayList<Label> pokeLevelLabel;
@@ -143,72 +142,86 @@ public class FXMLDocumentController implements Initializable {
     ArrayList<Label> pokeItemLabel;
     int updateCalc;
     @FXML
-    private TextField breakField3;
+    public TextField breakField3;
     @FXML
-    private TextField breakField1;
+    public TextField breakField1;
     @FXML
-    private TextField breakField4;
+    public TextField breakField4;
     @FXML
-    private TextField breakField6;
+    public TextField breakField6;
     @FXML
-    private TextField breakField5;
+    public TextField breakField5;
     @FXML
-    private TextField breakField2;
+    public TextField breakField2;
     @FXML
-    private CheckBox breakEnabled;
+    public CheckBox breakEnabled;
     boolean breaker;
     @FXML
-    private Label pokeItemLabel1;
+    public Label pokeItemLabel1;
     @FXML
-    private Label pokeItemLabel2;
+    public Label pokeItemLabel2;
     @FXML
-    private Label pokeItemLabel3;
+    public Label pokeItemLabel3;
     @FXML
-    private Label pokeItemLabel4;
+    public Label pokeItemLabel4;
     @FXML
-    private Label pokeItemLabel5;
+    public Label pokeItemLabel5;
     @FXML
-    private Label pokeItemLabel6;
+    public Label pokeItemLabel6;
     @FXML
-    private ComboBox<?> pokemonHuntComboBox;
+    public ComboBox<?> pokemonHuntComboBox;
     @FXML
-    private TextField accountNumberField;
+    public TextField accountNumberField;
     @FXML
-    private TextField accountGmailField;
+    public TextField accountGmailField;
     @FXML
-    private TextField accountPrefixField;
+    public TextField accountPrefixField;
     @FXML
-    private TextField accountPasswordField;
+    public TextField accountPasswordField;
     @FXML
-    private ComboBox<String> accountTeamCombo;
+    public ComboBox<String> accountTeamCombo;
     @FXML
-    private RadioButton fPokeRadio;
+    public RadioButton fPokeRadio;
     @FXML
-    private RadioButton sPokeRadio;
+    public RadioButton sPokeRadio;
     @FXML
-    private RadioButton tPokeRadio;
+    public RadioButton tPokeRadio;
     String starterSelection;
     ArrayList<Account> accList;
     @FXML
-    private ComboBox<Account> accountCombo;
+    public ComboBox<Account> accountCombo;
     @FXML
-    private TextField listToTradeAccount;
+    public TextField listToTradeAccount;
     @FXML
-    private TextField accountGmailPassField;
+    public TextField accountGmailPassField;
     @FXML
-    private TextField listToCatchAmount;
+    public TextField listToCatchAmount;
     boolean manualBoolean;
     @FXML
-    private Button continueManual;
+    public Button continueManual;
     @FXML
-    private Button manual;
+    public Button manual;
     @FXML
-    private ProgressBar multiProgressBar;
+    public ProgressBar multiProgressBar;
     float multiProgress;
     int imageCalc;
     
+    FXMLDocumentController controller;
+    
+    
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        controller = this;
+        CaptchaBreaker cb = CaptchaBreaker.getInstance();
+        cb.setDriverAndController(controller, driver);
+        Battle b =Battle.getInstance();
+        b.setDriverAndController(controller, driver);
+        Map m = Map.getInstance();
+        m.setDriverAndController(controller, driver);
+        Misc mi = Misc.getInstance();
+        mi.setDriverAndController(controller, driver);
+        
         imageCalc = 0;
         multiProgress = 0;
         multiProgressBar.setProgress(multiProgress);
@@ -278,73 +291,14 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void handleButtonAction(ActionEvent event) {
         
-        
         Task task = new Task<Void>() {
             @Override public Void call() {
-                
-                FightBreaker = false;
-                driver.get("http://www.tppcrpg.net/battle.php?Battle=Trainer&Trainer="+trainingAccountField.getText());
-                long startTime = System.currentTimeMillis();
-                startBigTime = System.currentTimeMillis();
-                random = (long) Math.random()*Integer.valueOf(timeBetweenRestRandom.getText()); //minutes
-                while (true){
-                    bigSleep();
-                    if (FightBreaker){
-                        break;
-                    }
-                    estimatedTime  = System.currentTimeMillis() - startTime;
-                    if (estimatedTime > 10000){
-                        driver.get("http://www.tppcrpg.net/battle.php?Battle=Trainer&Trainer="+trainingAccountField.getText());
-                        startTime = System.currentTimeMillis();
-                    }
-                    Platform.runLater(new Runnable() {
-                        @Override public void run() {
-                           /*String playerLevel = driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@class='lvlitem']")).getText();
-                           playerLevel = (playerLevel.substring(7, 14)).replaceAll(" ", "");
-                           currLevel = Integer.valueOf(playerLevel);*/
-
-                           updateUI();
-                           System.out.println("HELLO3");
-                           
-                        }
-                    });
-                    System.out.println("HELLO1");
-                    if (breakEnabled.isSelected() && breaker){
-                        System.out.println("Stopping.");
-                        breaker = false;
-                        break;
-                    }
-                    System.out.println("HELLO2");
-                    
-                    if (driver.findElements(By.id("Validate")).size() != 0 ){
-                        startTime = System.currentTimeMillis();
-                        //Captcha
-                        updateMessage("Captcha: "+solveCaptcha("Congratulations!"));
-                        //defSleep(1000);
-                        driver.get("http://www.tppcrpg.net/battle.php?Battle=Trainer&Trainer="+trainingAccountField.getText());
-                        startTime = System.currentTimeMillis();
-                    }else if(driver.findElements(By.linkText("Restart Battle")).size() != 0){
-                        startTime = System.currentTimeMillis();
-                        driver.findElement(By.linkText("Restart Battle")).click();
-                    } else if (driver.findElements(By.className("submit")).size() != 0){
-                        startTime = System.currentTimeMillis();
-                        driver.findElement(By.className("submit")).click();
-                    }
-                    /*Platform.runLater(new Runnable() {
-                        @Override public void run() {
-                           updateUI();
-                        }
-                    });*/
-                    defSleep();
-
-                }  
+                Battle b = new Battle();
+                b.fight(trainingAccountField.getText(), 0);
                 
             return null;
         }
-
     };
-        
-    captchaLabel.textProperty().bind(task.messageProperty());
     new Thread(task).start();
     }  
 
@@ -358,63 +312,30 @@ public class FXMLDocumentController implements Initializable {
     private void loginButtonAction(ActionEvent event) {
         
         Task task = new Task<Void>() {
-        @Override public Void call() {
-        driver.get("http://www.tppcrpg.net/login.php");
-        element = driver.findElement(By.name("LoginID"));
-        element.sendKeys(usernameField.getText());
-        
-        element = driver.findElement(By.name("NewPass"));
-        element.sendKeys(passwordField.getText());
-        
-        if(driver.findElements(By.name("Validate")).size() > 0){
-                solveCaptcha("Validation Image");
+            @Override public Void call() {
+            Misc mi = Misc.getInstance();
+            mi.login(usernameField.getText(), passwordField.getText());
+
+            Platform.runLater(new Runnable() {
+                @Override public void run() {
+                    String playerLevel = driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@class='lvlitem']")).getText();
+                    playerLevel = (playerLevel.substring(7, 14)).replaceAll(" ", "");
+                    startLevel = Integer.valueOf(playerLevel);
+
+                    String imageString = driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@class='pb']")).getAttribute("style");
+                    imageString = imageString.substring(23, imageString.length()-3);
+                    pokeImageView.setImage(new Image(imageString));
+
+                    updateUI();
+
+                }
+            });
+
+
+
+            return null;
         }
-        if(driver.findElements(By.className("submit")).size() > 0){
-                driver.findElement(By.className("submit")).click();
-        }
-        
-        Platform.runLater(new Runnable() {
-            @Override public void run() {
-                String playerLevel = driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@class='lvlitem']")).getText();
-                playerLevel = (playerLevel.substring(7, 14)).replaceAll(" ", "");
-                startLevel = Integer.valueOf(playerLevel);
-
-                String imageString = driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@class='pb']")).getAttribute("style");
-                imageString = imageString.substring(23, imageString.length()-3);
-                pokeImageView.setImage(new Image(imageString));
-               
-                updateUI();
-                //pokeLabel = new ArrayList(Arrays.asList(pokeLabel1,pokeLabel2,pokeLabel3,pokeLabel4,pokeLabel5,pokeLabel6));
-                //pokeImage = new ArrayList(Arrays.asList(pokeImage1,pokeImage2,pokeImage3,pokeImage4,pokeImage5,pokeImage6));
-                //pokeLevelLabel = new ArrayList(Arrays.asList(pokeLevelLabel1,pokeLevelLabel2,pokeLevelLabel3,pokeLevelLabel4,pokeLevelLabel5,pokeLevelLabel6));
-                /*for(int i=0;i<6;i++){
-                    //int rlevel;
-                    String tempLevel;
-                    String tempNumber;
-                    if(i<3){
-                        tempLevel = driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@id='rs']/div[1]/img["+(i+1)+"]")).getAttribute("onclick");
-                        tempNumber = tempLevel.substring(tempLevel.indexOf("level: '")+8, tempLevel.indexOf("'", tempLevel.indexOf("level: '")+8));
-                        pokeImage.get(i).setImage(new Image(driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@id='rs']/div[1]/img["+(i+1)+"]")).getAttribute("src")));
-                        pokeLabel.get(i).setText(driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@id='rs']/div[1]/img["+(i+1)+"]")).getAttribute("title").replaceAll("Shiny", "S.").replaceAll("Dark", "D.").replaceAll("Golden", "G."));
-                        pokeLevelLabel.get(i).setText("Lv: "+tempNumber);
-                   
-                    } else if (i <6){
-                        tempLevel = driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@id='rs']/div[2]/img["+(i-2)+"]")).getAttribute("onclick");
-                        tempNumber = tempLevel.substring(tempLevel.indexOf("level: '")+8, tempLevel.indexOf("'", tempLevel.indexOf("level: '")+8));
-                        pokeImage.get(i).setImage(new Image(driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@id='rs']/div[2]/img["+(i-2)+"]")).getAttribute("src")));
-                        pokeLabel.get(i).setText(driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@id='rs']/div[2]/img["+(i-2)+"]")).getAttribute("title").replaceAll("Shiny", "S.").replaceAll("Dark", "D.").replaceAll("Golden", "G."));
-                        pokeLevelLabel.get(i).setText("Lv: "+tempNumber);
-                    }
-                }*/
-
-            }
-        });
-        
-
-        
-        return null;
-    }
-};
+    };
     
 
     new Thread(task).start();
@@ -445,98 +366,16 @@ public class FXMLDocumentController implements Initializable {
                     int levelDiff = currLevel - startLevel;
                     playerLevelLabel.setText("Level: "+currLevel+" (" + levelDiff+")");
 
-                    ArrayList<Integer> pokeList = new ArrayList();
-
-                    for(int i=0;i<6;i++){
-                        //int rlevel;
-                        String tempLevel;
-                        String tempNumber = "";
-
-                        String tempItem = "";
-                        if(i<3){
-                            tempLevel = driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@id='rs']/div[1]/img["+(i+1)+"]")).getAttribute("onclick");
-                            tempNumber = tempLevel.substring(tempLevel.indexOf("level: '")+8, tempLevel.indexOf("'", tempLevel.indexOf("level: '")+8));
-                            tempItem = tempLevel.substring(tempLevel.indexOf("item: '")+7, tempLevel.indexOf("'", tempLevel.indexOf("item: '")+7));
-                            if(imageCalc > 50){
-                                pokeImage.get(i).setImage(new Image(driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@id='rs']/div[1]/img["+(i+1)+"]")).getAttribute("src")));
-                                pokeLabel.get(i).setText(driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@id='rs']/div[1]/img["+(i+1)+"]")).getAttribute("title").replaceAll("Shiny", "S.").replaceAll("Dark", "D.").replaceAll("Golden", "G."));
-                            }
-                            pokeLevelLabel.get(i).setText("Lv: "+tempNumber);
-                            pokeItemLabel.get(i).setText(tempItem);
-
-                        } else if (i <6){
-                            tempLevel = driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@id='rs']/div[2]/img["+(i-2)+"]")).getAttribute("onclick");
-                            tempNumber = tempLevel.substring(tempLevel.indexOf("level: '")+8, tempLevel.indexOf("'", tempLevel.indexOf("level: '")+8));
-                            tempItem = tempLevel.substring(tempLevel.indexOf("item: '")+7, tempLevel.indexOf("'", tempLevel.indexOf("item: '")+7));
-                            if(imageCalc > 50){
-                                pokeImage.get(i).setImage(new Image(driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@id='rs']/div[2]/img["+(i-2)+"]")).getAttribute("src")));
-                                pokeLabel.get(i).setText(driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@id='rs']/div[2]/img["+(i-2)+"]")).getAttribute("title").replaceAll("Shiny", "S.").replaceAll("Dark", "D.").replaceAll("Golden", "G."));
-                            }
-                            pokeLevelLabel.get(i).setText("Lv: "+tempNumber);
-                            pokeItemLabel.get(i).setText(tempItem);
-                        }
-
-                        if(!pokeBreakLabel.get(i).getText().isEmpty() && i < 6 && i != 0 && tempItem.equals("Exp Share") && breakEnabled.isSelected()){
-                            if (Integer.valueOf(pokeBreakLabel.get(i).getText()) <= Integer.valueOf(tempNumber)){
-                                pokeList.add(i+1);
-
-                                //System.out.println("If "+pokeBreakLabel.get(i).getText() +"<= "+ Integer.valueOf(tempNumber));
-                                //System.out.println("Break condition true.");
-                                //breaker = true;
-                            }
-                        } else if (!pokeBreakLabel.get(0).getText().isEmpty() && breakEnabled.isSelected()){
-                            if(Integer.valueOf(pokeBreakLabel.get(i).getText()) <= Integer.valueOf(tempNumber)){
-                                System.out.println("Breaker enabled");
-                                breaker = true;
-                            }
-                        }
-                    }
+                    /**
+                     
+                     ***/
                     
                     if(imageCalc > 50){
                             imageCalc = 0;
                     }
                     
                     //pokeList
-                    if (pokeList.size() > 0){
-                        System.out.println("Pokelist size: " + pokeList.size());
-                        driver.get("http://www.tppcrpg.net/configure_roster.php");
-                        for (int i=0;i<pokeList.size();i++){
-                            System.out.println("Doing The Thing");
-                            if((pokeList.get(i))%2 == 0){
-                                driver.findElement(By.xpath("/html/body/div[@id='body']/div[@id='inner']/form/ul[@id='configure']/li[@class='right']["+(pokeList.get(i)/2)+"]/p[1]/input")).click();
-                                Select select = new Select(driver.findElement(By.xpath("/html/body/div[@id='cBox']/p[@class='center'][1]/select[@id='ItemA']")));
-                                select.selectByIndex(0);
-                                //driver.findElement(By.xpath("/html/body/div[@id='cBox']/p[@class='center'][2]/input[@class='submit']")).submit();
-                                driver.findElement(By.xpath("/html/body/div[@id='cBox']/p[@class='center'][2]/input")).click();
-
-
-                            } else {
-                                System.out.println(pokeList.get(i));
-                                if(pokeList.get(i) == 1){
-                                    driver.findElement(By.xpath("/html/body/div[@id='body']/div[@id='inner']/form/ul[@id='configure']/li["+(pokeList.get(i))+"]/p[1]/input")).click();
-                                } else if (pokeList.get(i) == 3){
-                                    //System.out.println("/html/body/div[@id='body']/div[@id='inner']/form/ul[@id='configure']/li["+(pokeList.get(i)+1)+"]/p[1]/input");
-                                    driver.findElement(By.xpath("/html/body/div[@id='body']/div[@id='inner']/form/ul[@id='configure']/li["+(pokeList.get(i)+1)+"]/p[1]/input")).click();
-                                } else if (pokeList.get(i) == 5){
-                                    driver.findElement(By.xpath("/html/body/div[@id='body']/div[@id='inner']/form/ul[@id='configure']/li["+(pokeList.get(i)+2)+"]/p[1]/input")).click();
-                                }
-                                Select select = new Select(driver.findElement(By.xpath("/html/body/div[@id='cBox']/p[@class='center'][1]/select[@id='ItemA']")));
-                                select.selectByIndex(0);
-                                //driver.findElement(By.xpath("/html/body/div[@id='cBox']/p[@class='center'][2]/input[@class='submit']")).submit();
-                                driver.findElement(By.xpath("/html/body/div[@id='cBox']/p[@class='center'][2]/input")).click();
-                            }
-                            try {
-                                Thread.sleep(300);
-                            } catch (InterruptedException ex) {
-                                Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                        }
-                        System.out.println("Time to continue");
-                        driver.findElement(By.xpath("/html/body/div[@id='body']/div[@id='inner']/form/p[@class='center f']/input[@class='submit']")).click();
-                        driver.get("http://www.tppcrpg.net/battle.php?Battle=Trainer&Trainer="+trainingAccountField.getText());
-                        
-
-                    }
+                    
                 }
                 break;
             } catch(NoSuchElementException | org.openqa.selenium.StaleElementReferenceException e) {
@@ -544,67 +383,7 @@ public class FXMLDocumentController implements Initializable {
             }
         }
     }
-    
-    public int startDonate(int tokens){
-        int errorcalc = 0;
-        driver.get("http://www.tppcrpg.net/donation_center.php");
-        while(true){
-
-            while(true){
-                if(driver.findElements(By.id("donatePoke")).size() == 0 && errorcalc<10){
-                    errorcalc++;
-                    driver.get("http://www.tppcrpg.net/donation_center.php");
-                } else {
-                    break;
-                }
-                if(FightBreaker){
-                    break;
-                }
-            }
-
-            if(FightBreaker){
-                break;
-            }
-            if (driver.findElements(By.id("donatePoke")).size() > 0 ){
-                tokens++;
-                Select select = new Select(driver.findElement(By.id("donatePoke")));
-                select.selectByIndex(1);
-                driver.findElement(By.className("submit")).click();
-                driver.switchTo().alert().accept();
-            } else {
-                break;
-            }
-        }
-        return tokens;
-    }            
-            
-    public void battleMap(){
-        driver.findElement(By.linkText("Lets Battle!")).click();
-        while(true){
-            if(FightBreaker){
-                break;
-            }    
-
-            if (driver.findElements(By.id("Validate")).size() != 0 ){
-                solveCaptcha("Congratulations!");
-            }
-
-            if (driver.findElements(By.className("hpBar")).size() > 0) {
-
-                if (driver.findElement(By.className("hpBar")).getAttribute("title").equals("0% HP Remaining")){
-                    driver.findElement(By.linkText("Leave Battle")).click();
-                    break;
-                }
-            }
-            defSleep();
-            if (driver.findElements(By.className("submit")).size() > 0){
-                driver.findElement(By.className("submit")).click();
-
-            } else {
-                break;
-            }
-        }
-    }
+               
     
     public void bigSleep(){
         currBigTime = System.currentTimeMillis();
@@ -640,97 +419,30 @@ public class FXMLDocumentController implements Initializable {
     
     @FXML
     private void startSwapTokensAction(ActionEvent event) {
-        
-        
-        
-    Task task = new Task<Void>() {
-        @Override public Void call() {
-        FightBreaker = false;
-        int mapid = 1;
-        int tokens = 0;
-        tokens = startDonate(tokens);
-        updateMessage("Tokens: " + tokens);
-        driver.get("http://www.tppcrpg.net/map.php?Map="+mapid);
-        int caught =0;
-        while(true){
-            driver.findElement(By.name("Find")).click();
-            if (driver.findElements(By.name("Catch")).size() > 0 ){
-                caught++;
-                driver.findElement(By.name("Catch")).click();
-                if (driver.findElements(By.className("success")).size() > 0){
-                } else {
-                    System.out.println("Poke Escaped");
-                    tokens = startDonate(tokens);
-                    updateMessage("Tokens: " + tokens);
-                    driver.get("http://www.tppcrpg.net/map.php?Map="+mapid);
+        Task task = new Task<Void>() {
+            @Override public Void call() {
+                Misc mi = Misc.getInstance();
+                updateMessage(""+mi.SwapToken());
 
-                    caught = 0;
-                }
-                driver.findElement(By.partialLinkText("Return To")).click();
- 
-            } else if (driver.findElements(By.linkText("Lets Battle!")).size() > 0 ){
-                battleMap();
-                driver.get("http://www.tppcrpg.net/map.php?Map="+mapid);
+                return null;
             }
-
-            if (caught > (10*mapid)){
-                    mapid++;
-                if (mapid > 14){
-                    mapid = 1;
-                }
-                
-            }
-            if(caught > 139){
-                caught = 0;
-                tokens = startDonate(tokens);
-                driver.get("http://www.tppcrpg.net/map.php?Map="+mapid);
-            }
-            if (FightBreaker){
-                break;
-            }
-            defSleep();
-            
-        }
-
-        return null;
-    }
 
         };
-    
-    tokenLabel.textProperty().bind(task.messageProperty());
-    new Thread(task).start();
+
+        tokenLabel.textProperty().bind(task.messageProperty());
+        new Thread(task).start();
 
 }
 
 
-    public String solveCaptcha(String attrib){
-        String output = "";
-    //Captcha
-        List<WebElement> allImages = driver.findElements(By.tagName("img"));
-        for (int i=0; i<allImages.size(); i++){
-            if(allImages.get(i).getAttribute("alt").equals(attrib/*"Congratulations!"*/)){                        
-                output = cb.crush(driver, allImages.get(i), imageView);
-                if (!output.equals("")){
-                    if(driver.findElements(By.id("Validate")).size() > 0){
-                        driver.findElement(By.id("Validate")).sendKeys(output);
-                    } else if (driver.findElements(By.name("Validate")).size() > 0){
-                        driver.findElement(By.name("Validate")).sendKeys(output);
-                    }
-
-                    driver.findElement(By.className("submit")).click();
-                }
-                break;
-            }
-        }
-        defSleep();
-        return output;
-    } 
+    
 
 
 
     @FXML
     private void logoutButtonAction(ActionEvent event) {
-        driver.get("http://www.tppcrpg.net/logout.php");
+        Misc mi = Misc.getInstance();
+        mi.logout();
     }
 
     @FXML
@@ -782,43 +494,13 @@ public class FXMLDocumentController implements Initializable {
     private void startSSAnneAction(ActionEvent event) {
         
         Task task = new Task<Void>() {
-        @Override public Void call() {
-        long startTime = System.currentTimeMillis();
-        //driver.get("http://www.tppcrpg.net/battle.php?Battle=SSAnne");
-        while(true){
-            if(FightBreaker){
-                FightBreaker = false;
-                break;
+            @Override public Void call() {
+                long startTime = System.currentTimeMillis();
+                //driver.get("http://www.tppcrpg.net/battle.php?Battle=SSAnne");
+                Misc mi = Misc.getInstance();
+                mi.ssAnne();
+                return null;
             }
-            if(driver.findElements(By.className("submit")).size() >0){
-                driver.findElement(By.className("submit")).click();
-                startTime = System.currentTimeMillis();
-            }
-            
-            estimatedTime = System.currentTimeMillis() - startTime;
-            if (estimatedTime > 20000) {
-                System.out.println("Timed out!");
-                driver.get("http://www.tppcrpg.net/resume_battle.php");
-                driver.findElement(By.linkText("S.S. Anne"));
-                startTime = System.currentTimeMillis();
-            }
-            
-            Platform.runLater(new Runnable() {
-                @Override public void run() {
-                   String playerLevel = driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@class='lvlitem']")).getText();
-                   playerLevel = (playerLevel.substring(7, 14)).replaceAll(" ", "");
-                   currLevel = Integer.valueOf(playerLevel);
-
-                   updateUI();
-
-                }
-            });
-            
-            defSleep();
-            bigSleep();
-        }
-        return null;
-        }
 
         };
         new Thread(task).start();
@@ -837,40 +519,8 @@ public class FXMLDocumentController implements Initializable {
         Task task = new Task<Void>() {
             @Override public Void call() {
                 
-                for(int i=0; i<Integer.valueOf(accountNumberField.getText());i++){
-                    System.out.println("Creatin account #" + i);
-                    driver.get("http://www.tppcrpg.net/signup.php");
-                    
-                    if(driver.findElements(By.id("NickName")).size() > 0){
-                        int accM = (int)(Math.random()*10000);
-                        driver.findElement(By.id("NickName")).sendKeys(accountPrefixField.getText()+accM);
-                        driver.findElement(By.id("Password")).sendKeys(accountPasswordField.getText());
-                        driver.findElement(By.id("ConfirmPassword")).sendKeys(accountPasswordField.getText());
-                        driver.findElement(By.id("Email")).sendKeys(accountGmailField.getText()+"+"+accountPrefixField.getText()+"@gmail.com");
-
-
-                        List<WebElement> starters = driver.findElements(By.id("Starter"));
-                        for(int u =0; u<starters.size();u++){
-                            if(starters.get(u).getAttribute("value").equals(starterSelection)){
-                                starters.get(u).click();
-                            }
-                        }
-                        Select tselect = new Select(driver.findElement(By.id("Team")));
-                        tselect.selectByIndex(accountTeamCombo.getSelectionModel().getSelectedIndex()+1);
-                        solveCaptcha("Validation Image");
-                        Account.getAccList().add(new Account(accountPrefixField.getText()+accM, accountPasswordField.getText(), accountGmailField.getText()+"+"+accountPrefixField.getText()+"@gmail.com", accountTeamCombo.getSelectionModel().getSelectedItem()));
-                        accList = Account.getAccList();
-                        accountCombo.getItems().setAll(accList);
-                        
-                    }
-                    multiProgress = (float)i / (float)(Integer.valueOf(accountNumberField.getText()) -1);
-                    Platform.runLater(new Runnable() {
-                        @Override public void run() {
-                           multiProgressBar.setProgress(multiProgress);
-                        }
-                    });
-                    
-                }
+                Misc mi = Misc.getInstance();
+                mi.makeAccounts();
                 
                 return null;
             }
@@ -908,36 +558,8 @@ public class FXMLDocumentController implements Initializable {
     private void listToTradeAction(ActionEvent event) {
         Task task = new Task<Void>() {
         @Override public Void call() {
-        for(int i=0;i<accList.size();i++){
-            driver.get("http://www.tppcrpg.net/login.php");
-            driver.findElement(By.name("LoginID")).sendKeys(accList.get(i).account);
-            driver.findElement(By.name("NewPass")).sendKeys(accList.get(i).password);
-            if(driver.findElements(By.name("Validate")).size() > 0){
-                solveCaptcha("Validation Image");
-            }
-            if(driver.findElements(By.className("submit")).size() > 0){
-                driver.findElement(By.className("submit")).click();
-            }
-            
-            driver.get("http://www.tppcrpg.net/create_trade.php");
-            driver.findElement(By.name("id")).sendKeys(listToTradeAccount.getText());
-            driver.findElement(By.className("submit")).click();
-            
-            Select select = new Select(driver.findElement(By.id("CP")));
-            for(int u=0;u<select.getOptions().size();u++){
-                select.selectByIndex(u);
-            }
-            
-            driver.findElement(By.className("submit")).click();
-            multiProgress = (float)i / (float)(accList.size() -1);
-                Platform.runLater(new Runnable() {
-                    @Override public void run() {
-                       multiProgressBar.setProgress(multiProgress);
-                    }
-                });
-            driver.get("http://www.tppcrpg.net/logout.php");
-            defSleep();
-        }
+            Misc mi = Misc.getInstance();
+            mi.accountsTrade();
         System.out.println("Ending trading making.");
         
         return null;
@@ -951,54 +573,12 @@ public class FXMLDocumentController implements Initializable {
     private void listToCatchAction(ActionEvent event) {
 
         Task task = new Task<Void>() {
-        @Override public Void call() {
-        for(int i=0;i<accList.size();i++){
-            
-            driver.get("http://www.tppcrpg.net/login.php");
-            driver.findElement(By.name("LoginID")).sendKeys(accList.get(i).account);
-            driver.findElement(By.name("NewPass")).sendKeys(accList.get(i).password);
-            if(driver.findElements(By.name("Validate")).size() > 0){
-                solveCaptcha("Validation Image");
-            }
-            if(driver.findElements(By.className("submit")).size() > 0){
-                driver.findElement(By.className("submit")).click();
-            }
+            @Override public Void call() {
+                Misc mi = Misc.getInstance();
+                mi.accountsTrade();
 
-            driver.get("http://www.tppcrpg.net/map.php?Map=" + (int)(Math.random()*10 + 2));
-            /*if(driver.findElements(By.name("Find")).size() == 0){ //Remove accs that cant login
-                accList.remove(i);
-                continue;
-            }*/
-            
-            int colca = 0;
-            while (colca < Integer.valueOf(listToCatchAmount.getText())){
-                if(driver.findElements(By.name("Find")).size() != 0){
-                    driver.findElement(By.name("Find")).click();
-                } 
-                if (driver.findElements(By.className("submit")).size() > 0){
-                    defSleep();
-                    driver.findElement(By.className("submit")).click();
-                    colca++;
-                } else if (driver.findElements(By.linkText("Lets Battle!")).size() > 0 ){
-                    driver.get("http://www.tppcrpg.net/map.php?Map="+(int)(Math.random()*10 + 2));
-                } else if (driver.findElements(By.partialLinkText("Return To")).size() > 0){
-                    driver.findElement(By.partialLinkText("Return To")).click();
-                }
-                
-                defSleep();
-            }
-            multiProgress = (float)i / (float)(accList.size() -1);;
-                Platform.runLater(new Runnable() {
-                    @Override public void run() {
-                       multiProgressBar.setProgress(multiProgress);
-                    }
-                });
-            driver.get("http://www.tppcrpg.net/logout.php");
+                return null;
         }
-        System.out.println("Ending poke catching.");
-        
-        return null;
-            }
     };
     new Thread(task).start();
         
@@ -1009,22 +589,8 @@ public class FXMLDocumentController implements Initializable {
         Task task = new Task<Void>() {
         @Override public Void call() {
         
-            CheckingMails cm = new CheckingMails(accountGmailField.getText()+"@gmail.com",accountGmailPassField.getText());
-            ArrayList<String> urls = cm.check();
-            for(int i=0;i<urls.size();i++){
-                driver.get(urls.get(i));
-                try {
-                    Thread.sleep(300);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                multiProgress = (float)i / (float)(accList.size() -1);
-                Platform.runLater(new Runnable() {
-                    @Override public void run() {
-                       multiProgressBar.setProgress(multiProgress);
-                    }
-                });
-            }
+            Misc mi = Misc.getInstance();
+            mi.verifyAccounts();
 
             return null;
         }
@@ -1037,38 +603,8 @@ public class FXMLDocumentController implements Initializable {
     private void getTeamPromoAction(ActionEvent event) {
         Task task = new Task<Void>() {
             @Override public Void call() {
-            for(int i=0;i<accList.size();i++){
-
-                driver.get("http://www.tppcrpg.net/login.php");
-                driver.findElement(By.name("LoginID")).sendKeys(accList.get(i).account);
-                driver.findElement(By.name("NewPass")).sendKeys(accList.get(i).password);
-                if(driver.findElements(By.name("Validate")).size() > 0){
-                    solveCaptcha("Validation Image");
-                }
-                if(driver.findElements(By.className("submit")).size() > 0){
-                    driver.findElement(By.className("submit")).click();
-                }
-                /***************************/
-                driver.get("http://www.tppcrpg.net/team.php");
-                ArrayList<WebElement> rewardList = (ArrayList<WebElement>) driver.findElements(By.name("Reward"));
-                for(int u=0;u<rewardList.size();u++){
-                    if(rewardList.get(u).getAttribute("value") == "1"){
-                        rewardList.get(u).click();
-                        driver.findElement(By.name("getReward")).click();
-                        break;
-                    }
-                }
-
-                /***************************/
-                defSleep();
-                multiProgress = (float)i / (float)(accList.size() -1);
-                Platform.runLater(new Runnable() {
-                    @Override public void run() {
-                       multiProgressBar.setProgress(multiProgress);
-                    }
-                });
-                driver.get("http://www.tppcrpg.net/logout.php");
-            }
+            Misc mi = Misc.getInstance();
+            mi.accountsPromo();
             System.out.println("Ending team promo hunting.");
 
             return null;
@@ -1087,43 +623,11 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void manualAction(ActionEvent event) {
         Task task = new Task<Void>() {
-        @Override public Void call() {
-            for(int i=0;i<accList.size();i++){
+            @Override public Void call() {
+                Misc mi = Misc.getInstance();
+                mi.accountsManual();
 
-                driver.get("http://www.tppcrpg.net/login.php");
-                driver.findElement(By.name("LoginID")).sendKeys(accList.get(i).account);
-                driver.findElement(By.name("NewPass")).sendKeys(accList.get(i).password);
-                if(driver.findElements(By.name("Validate")).size() > 0){
-                    solveCaptcha("Validation Image");
-                }
-                if(driver.findElements(By.className("submit")).size() > 0){
-                    driver.findElement(By.className("submit")).click();
-                }
-                
-                manual.visibleProperty().set(false);
-                while(true){
-                    if(manualBoolean){
-                        manualBoolean = false;
-                        break;
-                    }
-                    try {
-                        Thread.sleep(1000);
-                    } catch (InterruptedException ex) {
-                        Logger.getLogger(FXMLDocumentController.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-
-                }
-
-                multiProgress = (float)i / (float)(accList.size() -1);
-                Platform.runLater(new Runnable() {
-                    @Override public void run() {
-                       multiProgressBar.setProgress(multiProgress);
-                    }
-                });
-                driver.get("http://www.tppcrpg.net/logout.php"); 
-            }
-
-            return null;
+                return null;
             }
         };
     new Thread(task).start();
@@ -1135,230 +639,8 @@ public class FXMLDocumentController implements Initializable {
         
         Task task = new Task<Void>() {
         @Override public Void call() {
-            for(int i=0;i<accList.size();i++){
-                System.out.println("Promo Done already: " + accList.get(i).prePromoDone);
-                if(!accList.get(i).prePromoDone){
-                driver.get("http://www.tppcrpg.net/login.php");
-                driver.findElement(By.name("LoginID")).sendKeys(accList.get(i).account);
-                driver.findElement(By.name("NewPass")).sendKeys(accList.get(i).password);
-                if(driver.findElements(By.name("Validate")).size() > 0){
-                    solveCaptcha("Validation Image");
-                }
-                if(driver.findElements(By.className("submit")).size() > 0){
-                    driver.findElement(By.className("submit")).click();
-                }
-                /******************/
-                driver.get("http://www.tppcrpg.net/map.php?Map=3");
-                while(true){
-                    if(driver.findElements(By.name("Find")).size() > 0){
-                        driver.findElement(By.name("Find")).click();
-                        defSleep();
-                        if(driver.findElements(By.xpath("/html/body/div[@id='body']/div[@id='inner']/form[1]/blockquote[@class='success']/strong[1]")).size() > 0 ){
-                            System.out.println(driver.findElement(By.xpath("/html/body/div[@id='body']/div[@id='inner']/form[1]/blockquote[@class='success']/strong[1]")).getText());
-                            if (driver.findElement(By.xpath("/html/body/div[@id='body']/div[@id='inner']/form[1]/blockquote[@class='success']/strong[1]")).getText().equals("Heracross")){
-                                defSleep();
-                                driver.findElement(By.className("submit")).click();
-                                break;
-                            }
-                        }
-                        
-                    } else if (driver.findElements(By.linkText("Lets Battle!")).size() > 0 ){
-                        driver.get("http://www.tppcrpg.net/map.php?Map=3");
-                    } else if (driver.findElements(By.partialLinkText("Return To")).size() > 0){
-                        driver.findElement(By.partialLinkText("Return To")).click();
-                    }
-                }
-                
-                driver.get("http://www.tppcrpg.net/change_roster.php");
-                driver.get("http://www.tppcrpg.net/change_roster.php?c=&pn=214&o=");
-                driver.findElement(By.xpath("/html/body/div[@id='body']/div[@id='inner']/div[@id='rightR']/ul/li/div[@class='sl']/ul/li[1]/a")).click();
-                driver.get("http://www.tppcrpg.net/configure_roster.php");
-                driver.findElement(By.className("tMove1")).click();
-                Select movesel = new Select(driver.findElement(By.id("MoveA")));
-                movesel.selectByValue("48");
-                defSleep();
-                //driver.findElement(By.className("submit")).click(); //Set Move!
-                for(int y=0;y<driver.findElements(By.className("submit")).size();y++){
-                    if (driver.findElements(By.className("submit")).get(y).getAttribute("value").equals("Set Move!")){
-                        driver.findElements(By.className("submit")).get(y).click();
-                    }
-                }
-                defSleep();
-                
-                for(int y=0;y<driver.findElements(By.className("submit")).size();y++){
-                    if (driver.findElements(By.className("submit")).get(y).getAttribute("value").equals("Update Moves and Items")){
-                        driver.findElements(By.className("submit")).get(y).click();
-                    }
-                }
-                /******************/
-                driver.get("http://www.tppcrpg.net/battle_trainer.php");
-                driver.findElement(By.id("Trainer")).sendKeys("2502909");
-                driver.findElement(By.className("submit")).click();                
-                
-                FightBreaker = false;
-                long startTime = System.currentTimeMillis();
-                startBigTime = System.currentTimeMillis();
-                random = (long) Math.random()*Integer.valueOf(timeBetweenRestRandom.getText()); //minutes
-                int calc = 0;
-                while (true){
-                    bigSleep();
-                    if (FightBreaker || calc > 2){
-                        break;
-                    }
-                    estimatedTime  = System.currentTimeMillis() - startTime;
-                    if (estimatedTime > 10000){
-                        driver.get("http://www.tppcrpg.net/battle_trainer.php");
-                        driver.findElement(By.id("Trainer")).sendKeys("2502909");
-                        driver.findElement(By.className("submit")).click();        
-                        startTime = System.currentTimeMillis();
-                    }
-                    Platform.runLater(new Runnable() {
-                        @Override public void run() {
-                           /*String playerLevel = driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@class='lvlitem']")).getText();
-                           playerLevel = (playerLevel.substring(7, 14)).replaceAll(" ", "");
-                           currLevel = Integer.valueOf(playerLevel);*/
-
-                           updateUI();
-                           
-                        }
-                    });
-                    
-                    if (breakEnabled.isSelected() && breaker){
-                        System.out.println("Stopping.");
-                        breaker = false;
-                        break;
-                    }
-                    
-                    
-                    if (driver.findElements(By.id("Validate")).size() != 0 ){
-                        startTime = System.currentTimeMillis();
-                        //Captcha
-                        updateMessage("Captcha: "+solveCaptcha("Congratulations!"));
-                        //defSleep(1000);
-                        driver.get("http://www.tppcrpg.net/battle.php?Battle=Trainer&Trainer=2502909");
-                        startTime = System.currentTimeMillis();
-                    }else if(driver.findElements(By.linkText("Restart Battle")).size() != 0){
-                        calc++;
-                        startTime = System.currentTimeMillis();
-                        driver.findElement(By.linkText("Restart Battle")).click();
-                    } else if (driver.findElements(By.className("submit")).size() != 0){
-                        startTime = System.currentTimeMillis();
-                        driver.findElement(By.className("submit")).click();
-                    }
-                    /*Platform.runLater(new Runnable() {
-                        @Override public void run() {
-                           updateUI();
-                        }
-                    });*/
-                    defSleep();
-
-                }
-                
-                driver.get("http://www.tppcrpg.net/team.php");
-                driver.findElement(By.xpath("/html/body/div[@id='body']/div[@id='inner']/form/table[@class='ranks facrew']/tbody/tr[@class='r0'][1]/td[4]/input")).click();
-                driver.findElement(By.className("submit")).click();
-                
-                driver.get("http://www.tppcrpg.net/configure_roster.php");
-                driver.findElement(By.xpath("/html/body/div[@id='body']/div[@id='inner']/form/ul[@id='configure']/li[1]/p[1]/input")).click();
-                
-                movesel = new Select(driver.findElement(By.id("ItemA")));
-                
-                for(int n=0;n<movesel.getOptions().size();n++){
-                    if(!movesel.getOptions().get(n).getAttribute("class").equals("disabled") && movesel.getOptions().get(n).getText().contains("Team Boost")){
-                        movesel.selectByIndex(n);
-                        break;
-                    }
-                }
-                
-                //driver.findElement(By.className("submit")).click();  //Set Item!
-                for(int y=0;y<driver.findElements(By.className("submit")).size();y++){
-                    if (driver.findElements(By.className("submit")).get(y).getAttribute("value").equals("Set Item!")){
-                        driver.findElements(By.className("submit")).get(y).click();
-                    }
-                }
-                defSleep();
-                for(int y=0;y<driver.findElements(By.className("submit")).size();y++){
-                    if (driver.findElements(By.className("submit")).get(y).getAttribute("value").equals("Update Moves and Items")){
-                        driver.findElements(By.className("submit")).get(y).click();
-                    }
-                }
-                /******************/
-                
-                driver.get("http://www.tppcrpg.net/battle_trainer.php");
-                driver.findElement(By.id("Trainer")).sendKeys("2502909");
-                driver.findElement(By.className("submit")).click();                
-                
-                FightBreaker = false;
-                startTime = System.currentTimeMillis();
-                startBigTime = System.currentTimeMillis();
-                random = (long) Math.random()*Integer.valueOf(timeBetweenRestRandom.getText()); //minutes
-                calc = 0;
-                while (true){
-                    bigSleep();
-                    if (FightBreaker || calc > 5){
-                        break;
-                    }
-                    estimatedTime  = System.currentTimeMillis() - startTime;
-                    if (estimatedTime > 10000){
-                        driver.get("http://www.tppcrpg.net/battle_trainer.php");
-                        driver.findElement(By.id("Trainer")).sendKeys("2502909");
-                        driver.findElement(By.className("submit")).click();        
-                        startTime = System.currentTimeMillis();
-                    }
-                    Platform.runLater(new Runnable() {
-                        @Override public void run() {
-                           /*String playerLevel = driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@class='lvlitem']")).getText();
-                           playerLevel = (playerLevel.substring(7, 14)).replaceAll(" ", "");
-                           currLevel = Integer.valueOf(playerLevel);*/
-
-                           updateUI();
-                           
-                        }
-                    });
-                    
-                    if (breakEnabled.isSelected() && breaker){
-                        System.out.println("Stopping.");
-                        breaker = false;
-                        break;
-                    }
-                    
-                    
-                    if (driver.findElements(By.id("Validate")).size() != 0 ){
-                        startTime = System.currentTimeMillis();
-                        //Captcha
-                        updateMessage("Captcha: "+solveCaptcha("Congratulations!"));
-                        //defSleep(1000);
-                        driver.get("http://www.tppcrpg.net/battle.php?Battle=Trainer&Trainer=2502909");
-                        startTime = System.currentTimeMillis();
-                    }else if(driver.findElements(By.linkText("Restart Battle")).size() != 0){
-                        calc++;
-                        startTime = System.currentTimeMillis();
-                        driver.findElement(By.linkText("Restart Battle")).click();
-                    } else if (driver.findElements(By.className("submit")).size() != 0){
-                        startTime = System.currentTimeMillis();
-                        driver.findElement(By.className("submit")).click();
-                    }
-                    /*Platform.runLater(new Runnable() {
-                        @Override public void run() {
-                           updateUI();
-                        }
-                    });*/
-                    defSleep();
-
-                }
-                driver.get("http://www.tppcrpg.net/logout.php"); 
-                /******************/
-                }
-                multiProgress = (float)i / (float)(accList.size() -1);
-                Platform.runLater(new Runnable() {
-                    @Override public void run() {
-                       multiProgressBar.setProgress(multiProgress);
-                    }
-                });
-                accList.get(i).prePromoDone = true;
-                
-                
-            }
+            Misc mi = Misc.getInstance();
+            mi.accountsPreFight();
 
             return null;
             }
