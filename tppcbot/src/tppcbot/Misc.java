@@ -23,6 +23,7 @@ public class Misc {
     static Misc m = null;
     FXMLDocumentController controller;
     WebDriver driver;
+    int value;
     
     private Misc(){
     
@@ -177,16 +178,65 @@ public class Misc {
     void ssAnne() {
         long startTime = System.currentTimeMillis();
         long estimatedTime;
+        value = 0;
+        boolean hazebool = true;
+        controller.FightBreaker = false;
+        
         while(true){
             if(controller.FightBreaker){
                 controller.FightBreaker = false;
                 break;
             }
             if(driver.findElements(By.className("submit")).size() >0){
+                System.out.println("Pressin submit");
                 driver.findElement(By.className("submit")).click();
                 startTime = System.currentTimeMillis();
             }
+            if(driver.findElements(By.id("battleText")).size()>0){
+                System.out.println("Checking battleText"+driver.findElements(By.id("battleText")).size());
+                System.out.println(driver.findElements(By.id("battleText")).get(0).getText());
+                if(driver.findElements(By.id("battleText")).get(0).getText().contains("This number has been recorded as your")){
+                    driver.get("http://www.tppcrpg.net");
+                    break;
+                }
+            }
+            System.out.println("Getting past");
+            List<WebElement> alwe = driver.findElements(By.className("Trainer1"));
+            if(alwe.size()>0){
+                System.out.println("Check");
+                for(int i=0;i<alwe.size();i++){
+                    System.out.println("Check2");
+                    if(alwe.get(i).getText().contains("You have defeated")){
+                        String work = alwe.get(i).getText().substring(alwe.get(i).getText().indexOf("You have defeated ")+ "You have defeated ".length(), alwe.get(i).getText().indexOf(" Pokemon!"));     //"You have defeated 1 Pokemon!"
+                        work = work.replaceAll(" ", "");
+                        value = Integer.valueOf(work);
+                        Platform.runLater(new Runnable() {
+                            @Override public void run() {
+                               controller.ssAnneLabel.setText("Wins: " + value);
 
+                            }
+                        });
+                        System.out.println(value);
+                        break;
+                    }
+                }
+            }
+            System.out.println("Getting past 2");
+            
+            if(value > Integer.valueOf(controller.ssAnneWinCountLabel.getText()) && hazebool){
+                Select select = new Select(driver.findElement(By.id("MyMove")));
+                select.selectByVisibleText("Haze");
+                hazebool = false;
+                
+                // Here you need to lose
+            }
+            List<WebElement> party = new ArrayList();
+            if(driver.findElement(By.xpath("/html/body/div[@id='body']/div[@id='inner']/div[@id='battleWindow']/div[@id='ActiveBoxes']/div[@id='Trainer1_Active']/div[@class='innerContent']/fieldset/div[@class='hpBar']")).getAttribute("title").equals("0% HP Remaining")){
+                driver.findElement(By.className("rosterContent")).findElement(By.partialLinkText("")).click();
+            }
+            System.out.println("Getting past 3");
+
+            
             estimatedTime = System.currentTimeMillis() - startTime;
             if (estimatedTime > 20000) {
                 System.out.println("Timed out!");
@@ -194,13 +244,16 @@ public class Misc {
                 driver.findElement(By.linkText("S.S. Anne"));
                 startTime = System.currentTimeMillis();
             }
+            
+            System.out.println("Getting past 4");
 
-            Platform.runLater(new Runnable() {
+
+            /*Platform.runLater(new Runnable() {
                 @Override public void run() {
                    controller.updateUI();
 
                 }
-            });
+            });*/
 
             controller.defSleep();
             controller.bigSleep();

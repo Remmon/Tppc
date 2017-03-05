@@ -28,8 +28,12 @@ public class Battle {
     String battleid;
     long random;
     long estimatedTime;
-
-     public static Battle getInstance(){
+    
+    private Battle(){
+    
+    }
+    
+    public static Battle getInstance(){
         if(b == null){
             b = new Battle();
         }
@@ -64,6 +68,7 @@ public class Battle {
             }
             Platform.runLater(new Runnable() {
                 @Override public void run() {
+                    System.out.println("UpdateUI");
                    controller.updateUI();
                 }
             });
@@ -113,40 +118,34 @@ public class Battle {
         
         
         ArrayList<Integer> pokeList = new ArrayList();
+        System.out.println("Checking Break");
+        for(int i=0;i<6;i++){
+            //int rlevel;
+            String tempLevel;
+            String tempNumber = "";
 
-            for(int i=0;i<6;i++){
-                //int rlevel;
-                String tempLevel;
-                String tempNumber = "";
+            String tempItem = "";
+            if(i<3){
+                tempLevel = driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@id='rs']/div[1]/img["+(i+1)+"]")).getAttribute("onclick");
+                tempNumber = tempLevel.substring(tempLevel.indexOf("level: '")+8, tempLevel.indexOf("'", tempLevel.indexOf("level: '")+8));
+                tempItem = tempLevel.substring(tempLevel.indexOf("item: '")+7, tempLevel.indexOf("'", tempLevel.indexOf("item: '")+7));
+            } else if (i <6){
+                tempLevel = driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@id='rs']/div[2]/img["+(i-2)+"]")).getAttribute("onclick");
+                tempNumber = tempLevel.substring(tempLevel.indexOf("level: '")+8, tempLevel.indexOf("'", tempLevel.indexOf("level: '")+8));
+                tempItem = tempLevel.substring(tempLevel.indexOf("item: '")+7, tempLevel.indexOf("'", tempLevel.indexOf("item: '")+7));
+            }
 
-                String tempItem = "";
-                /*if(i<3){
-                    tempLevel = driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@id='rs']/div[1]/img["+(i+1)+"]")).getAttribute("onclick");
-                    tempNumber = tempLevel.substring(tempLevel.indexOf("level: '")+8, tempLevel.indexOf("'", tempLevel.indexOf("level: '")+8));
-                    tempItem = tempLevel.substring(tempLevel.indexOf("item: '")+7, tempLevel.indexOf("'", tempLevel.indexOf("item: '")+7));
-                    controller.pokeLevelLabel.get(i).setText("Lv: "+tempNumber);
-                    controller.pokeItemLabel.get(i).setText(tempItem);
-
-                } else if (i <6){
-                    tempLevel = driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@id='rs']/div[2]/img["+(i-2)+"]")).getAttribute("onclick");
-                    tempNumber = tempLevel.substring(tempLevel.indexOf("level: '")+8, tempLevel.indexOf("'", tempLevel.indexOf("level: '")+8));
-                    tempItem = tempLevel.substring(tempLevel.indexOf("item: '")+7, tempLevel.indexOf("'", tempLevel.indexOf("item: '")+7));
-
-                    controller.pokeLevelLabel.get(i).setText("Lv: "+tempNumber);
-                    controller.pokeItemLabel.get(i).setText(tempItem);
-                }*/
-
-                if(!controller.pokeBreakLabel.get(i).getText().isEmpty() && i < 6 && i != 0 && tempItem.equals("Exp Share") && controller.breakEnabled.isSelected()){
-                    if (Integer.valueOf(controller.pokeBreakLabel.get(i).getText()) <= Integer.valueOf(tempNumber)){
-                        pokeList.add(i+1);
-                    }
-                } else if (!controller.pokeBreakLabel.get(0).getText().isEmpty() && controller.breakEnabled.isSelected()){
-                    if(Integer.valueOf(controller.pokeBreakLabel.get(i).getText()) <= Integer.valueOf(tempNumber)){
-                        System.out.println("Breaker enabled");
-                        controller.breaker = true;
-                    }
+            if(!controller.pokeBreakLabel.get(i).getText().isEmpty() && i < 6 && i != 0 && tempItem.equals("Exp Share") && controller.breakEnabled.isSelected()){
+                if (Integer.valueOf(controller.pokeBreakLabel.get(i).getText()) <= Integer.valueOf(tempNumber)){
+                    pokeList.add(i+1);
+                }
+            } else if (!controller.pokeBreakLabel.get(0).getText().isEmpty() && controller.breakEnabled.isSelected()){
+                if(Integer.valueOf(controller.pokeBreakLabel.get(i).getText()) <= Integer.valueOf(tempNumber)){
+                    System.out.println("Breaker enabled");
+                    controller.breaker = true;
                 }
             }
+        }
         
          if (pokeList.size() > 0){
             System.out.println("Pokelist size: " + pokeList.size());

@@ -24,7 +24,8 @@ public class Map {
     HashMap<String, String> tppcItems;
     ArrayList<String> mapList;
     private Map(){
-        tppcMaps = new HashMap();        
+        tppcMaps = new HashMap();      
+        tppcItems = new HashMap();
         mapList = new ArrayList(Arrays.asList("Dark Islands","Treepath","Hidden Cove","Cold Cavern", "Meteor Hills","City Limits", "Ancient Temple", "Dark Cave","Memorial Caves","Empty Cliffs","Untouched Growth","Victory Path","Frozen Ruins","Safari Zone","Caverns of Alph"));
         tppcMaps.put("Ancient Temple", new ArrayList(Arrays.asList("Aerodactyl","Cranidos","Gligar","Hippopotas","Kabuto","Larvitar","Lunatone","Maractus","Omanyte","Relicanth","Sandshrew","Shieldon","Solrock","Tirtouga","Wooper")));
         tppcMaps.put("Caverns of Alph", new ArrayList(Arrays.asList("Unown")));

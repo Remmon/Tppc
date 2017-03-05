@@ -35,10 +35,12 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Dimension;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.phantomjs.PhantomJSDriver;
 import org.openqa.selenium.support.ui.Select;
 
 /**
@@ -207,16 +209,30 @@ public class FXMLDocumentController implements Initializable {
     int imageCalc;
     
     FXMLDocumentController controller;
+    @FXML
+    public TextField ssAnneWinCountLabel;
+    @FXML
+    public Label ssAnneLabel;
     
     
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         controller = this;
-        System.setProperty("webdriver.chrome.driver", "D:\\selenium\\chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "D:\\tppcJavafiles\\chromedriver.exe");
         driver = new ChromeDriver();
-        CaptchaBreaker cb = CaptchaBreaker.getInstance();
-        cb.setDriverAndController(controller, driver);
+        
+        
+        //System.setProperty("phantomjs.binary.path", "D:\\tppcJavafiles\\phantomjs.exe");
+        //driver = new  PhantomJSDriver();
+        //driver.manage().window().setSize(new Dimension(1820,980));
+        
+        
+        System.setProperty("webdriver.phantomjs.driver","D:\\tppcJavafiles\\\\phantomjs.exe");
+        
+        
+        //CaptchaBreaker cb = CaptchaBreaker.getInstance();
+        //cb.setDriverAndController(controller, driver);
         Battle b =Battle.getInstance();
         b.setDriverAndController(controller, driver);
         Map m = Map.getInstance();
@@ -270,7 +286,6 @@ public class FXMLDocumentController implements Initializable {
         tm = trainerManager.getInstance();
         tm.setDriver(driver);
         FightBreaker = false;
-        cb = CaptchaBreaker.getInstance();
         usernameField.setText("ScankHunt42");
         passwordField.setText("ScankHunt42qwe");
         trainingListView.getItems().setAll(tm.getList());
@@ -294,7 +309,7 @@ public class FXMLDocumentController implements Initializable {
         
         Task task = new Task<Void>() {
             @Override public Void call() {
-                Battle b = new Battle();
+                Battle b = Battle.getInstance();
                 b.fight(trainingAccountField.getText(), 0);
                 
             return null;
@@ -324,7 +339,10 @@ public class FXMLDocumentController implements Initializable {
                     startLevel = Integer.valueOf(playerLevel);
 
                     String imageString = driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@class='pb']")).getAttribute("style");
-                    imageString = imageString.substring(23, imageString.length()-3);
+                    System.out.println(imageString);
+                    
+                    imageString = imageString.substring(imageString.indexOf("http:"), imageString.indexOf(")", imageString.indexOf("http:")));
+                    System.out.println(imageString);
                     pokeImageView.setImage(new Image(imageString));
 
                     updateUI();
@@ -344,14 +362,14 @@ public class FXMLDocumentController implements Initializable {
 
     public void updateUI(){
         updateCalc = 0;
-        imageCalc++;
-        if(imageCalc > 50){
+        if(imageCalc < 1){
             System.out.println("Updating images");
         }
         while(updateCalc++ < 3){
             try {
+                System.out.println("Woeking");
                 if (driver.findElements(By.xpath("/html/body/div[@id='right']/ul/li[@class='hpSide']/img")).size() > 0){// && updateCalc > 6){
-                    //System.out.println("Updating!");
+                    System.out.println("Updating!");
                     updateCalc = 0;
                     //String imageString = driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@class='pb']")).getAttribute("style");
                     //imageString = imageString.substring(23, imageString.length()-3);
@@ -367,11 +385,39 @@ public class FXMLDocumentController implements Initializable {
                     int levelDiff = currLevel - startLevel;
                     playerLevelLabel.setText("Level: "+currLevel+" (" + levelDiff+")");
 
-                    /**
-                     
-                     ***/
+                    /**/
+                   for(int i=0;i<6;i++){
+                        //int rlevel;
+                        String tempLevel;
+                        String tempNumber = "";
+
+                        String tempItem = "";
+                        if(i<3){
+                            tempLevel = driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@id='rs']/div[1]/img["+(i+1)+"]")).getAttribute("onclick");
+                            tempNumber = tempLevel.substring(tempLevel.indexOf("level: '")+8, tempLevel.indexOf("'", tempLevel.indexOf("level: '")+8));
+                            tempItem = tempLevel.substring(tempLevel.indexOf("item: '")+7, tempLevel.indexOf("'", tempLevel.indexOf("item: '")+7));
+                            if(imageCalc < 1){
+                                pokeImage.get(i).setImage(new Image(driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@id='rs']/div[1]/img["+(i+1)+"]")).getAttribute("src")));
+                                pokeLabel.get(i).setText(driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@id='rs']/div[1]/img["+(i+1)+"]")).getAttribute("title").replaceAll("Shiny", "S.").replaceAll("Dark", "D.").replaceAll("Golden", "G."));
+                            }
+                            pokeLevelLabel.get(i).setText("Lv: "+tempNumber);
+                            pokeItemLabel.get(i).setText(tempItem);
+
+                        } else if (i <6){
+                            tempLevel = driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@id='rs']/div[2]/img["+(i-2)+"]")).getAttribute("onclick");
+                            tempNumber = tempLevel.substring(tempLevel.indexOf("level: '")+8, tempLevel.indexOf("'", tempLevel.indexOf("level: '")+8));
+                            tempItem = tempLevel.substring(tempLevel.indexOf("item: '")+7, tempLevel.indexOf("'", tempLevel.indexOf("item: '")+7));
+                            if(imageCalc < 1){
+                                pokeImage.get(i).setImage(new Image(driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@id='rs']/div[2]/img["+(i-2)+"]")).getAttribute("src")));
+                                pokeLabel.get(i).setText(driver.findElement(By.xpath("/html/body/div[@id='right']/ul/li[@id='rs']/div[2]/img["+(i-2)+"]")).getAttribute("title").replaceAll("Shiny", "S.").replaceAll("Dark", "D.").replaceAll("Golden", "G."));
+                            }
+                            pokeLevelLabel.get(i).setText("Lv: "+tempNumber);
+                            pokeItemLabel.get(i).setText(tempItem);
+                        }
+                    }
+                     /***/
                     
-                    if(imageCalc > 50){
+                    if(imageCalc++ > 50){
                             imageCalc = 0;
                     }
                     
