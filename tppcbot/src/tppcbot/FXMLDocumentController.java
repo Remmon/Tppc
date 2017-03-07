@@ -245,7 +245,7 @@ public class FXMLDocumentController implements Initializable {
         multiProgressBar.setProgress(multiProgress);
         listToCatchAmount.setText("5");
         Account.loadLogFromFile();
-        listToTradeAccount.setText("3458642");
+        listToTradeAccount.setText("");
         accList = Account.getAccList();
         accountCombo.getItems().setAll(accList);
         accountCombo.getSelectionModel().select(0);
@@ -286,8 +286,8 @@ public class FXMLDocumentController implements Initializable {
         tm = trainerManager.getInstance();
         tm.setDriver(driver);
         FightBreaker = false;
-        usernameField.setText("ScankHunt42");
-        passwordField.setText("ScankHunt42qwe");
+        usernameField.setText("");
+        passwordField.setText("");
         trainingListView.getItems().setAll(tm.getList());
         trainingListView.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<trainer>() {
         @Override
